@@ -1,0 +1,81 @@
+body {
+    font-family: 'Malgun Gothic', sans-serif;
+    background-color: #f4f7f6;
+    display: flex;
+    justify-content: center;
+    padding-top: 50px;
+    margin: 0;
+}
+
+.container {
+    width: 600px;
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+h1 { color: #333; margin-bottom: 20px; }
+
+
+.input-group { display: flex; gap: 10px; margin-bottom: 20px; }
+input[type="text"] {
+    flex-grow: 1;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    outline: none;
+}
+
+/* 할 일 목록 스타일 */
+#todoList { list-style: none; padding: 0; margin: 0; }
+li {
+    background: #fff;
+    border-bottom: 1px solid #eee;
+    padding: 12px 10px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.task-left { display: flex; align-items: center; gap: 10px; flex: 1; min-width: 0; }
+
+.task-text { flex-grow: 1; word-break: break-all; cursor: pointer; }
+
+/* 체크박스 삭제선 */
+.completed { text-decoration: line-through; color: #888; }
+
+/* 수정 모드용 입력창 */
+.edit-input {
+    display: none; /* 평소엔 숨김 */
+    padding: 8px;
+    border: 1px solid #034c8a;
+    border-radius: 4px;
+    width: 90%;
+}
+
+/* 버튼 공통 설정 */
+button {
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: filter 0.2s ease;
+    padding: 8px 15px;
+}
+button:hover { filter: brightness(80%); }
+button:active { filter: brightness(70%); }
+
+#addBtn { background-color: #034c8a; color: white; padding: 10px 20px; }
+.btn-group { display: flex; gap: 5px; }
+.edit-btn { background-color: #0d81ac; color: white; }
+.delete-btn { background-color: #dc3545; color: white; }
+.save-btn { background-color: #28a745; color: white; display: none; }
+.cancel-btn { background-color: #6c757d; color: white; display: none; }
+
+
+li.editing .task-text,
+li.editing .edit-btn { display: none; } /* 수정 중엔 글자와 수정버튼 숨김 */
+
+li.editing .edit-input,
+li.editing .save-btn,
+li.editing .cancel-btn { display: inline-block; } /* 수정 중엔 입력창과 저장/취소버튼 보임 */
