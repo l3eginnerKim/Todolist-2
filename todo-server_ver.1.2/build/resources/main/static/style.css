@@ -1,0 +1,117 @@
+/* [1] 기본 레이아웃 */
+body {
+    font-family: 'Malgun Gothic', sans-serif;
+    background-color: #f4f7f6;
+    display: flex;
+    justify-content: center;
+    padding-top: 50px;
+    margin: 0;
+}
+
+.container {
+    width: 600px;
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+h1 { color: #333; margin-bottom: 20px; }
+
+/* [2] 입력창 및 필터 그룹 */
+.input-group, .filter-container {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.filter-container { margin: 15px 0; } /* 필터 전용 여백 */
+
+input[type="text"] {
+    flex-grow: 1;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    outline: none;
+}
+
+/* [3] 할 일 목록 및 아이템 */
+#todoList { list-style: none; padding: 0; margin: 0; }
+
+li {
+    background: #fff;
+    border-bottom: 1px solid #eee;
+    padding: 12px 10px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.task-left { display: flex; align-items: center; gap: 10px; flex: 1; min-width: 0; }
+.task-text { flex-grow: 1; word-break: break-all; cursor: text; }
+.completed { text-decoration: line-through; color: #888; }
+
+.drag-handle {
+    cursor: pointer;
+    padding: 0 8px;
+    color: #888;
+    user-select: none;
+    display: inline-block;
+}
+
+/* [4] 버튼 공통 및 개별 스타일 */
+button {
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: filter 0.2s ease;
+    padding: 8px 15px;
+}
+
+button:hover { filter: brightness(80%); }
+button:active { filter: brightness(70%); }
+
+#addBtn      { background-color: #28a745; color: white; padding: 10px 20px; }
+.edit-btn    { background-color: #2e76df; color: white; }
+.delete-btn  { background-color: #dc3545; color: white; }
+.save-btn    { background-color: #28a745; color: white; display: none; }
+.cancel-btn  { background-color: #6c757d; color: white; display: none; }
+
+.filter-btn {
+    padding: 5px 15px;
+    border: 1px solid #ddd;
+    background: #fff;
+    border-radius: 30px;
+    transition: all 0.2s;
+}
+
+.filter-btn.active { background-color: #28a745; color: white; }
+
+/* [5] 진행률 바 */
+.progress-container { margin: 20px 0; padding: 10px; background: #ffffff; border-radius: 8px; }
+.progress-label { margin-bottom: 8px; font-weight: bold; font-size: 14px; }
+.progress-bar-bg { width: 100%; height: 12px; background-color: #e9ecef; border-radius: 10px; overflow: hidden; }
+
+#progressBarFill {
+    width: 0%;
+    height: 100%;
+    background-color: #28a745;
+    transition: width 0.3s ease;
+}
+
+/* [6] 수정 모드 제어 */
+.edit-input {
+    display: none;
+    padding: 8px;
+    border: 1px solid #034c8a;
+    border-radius: 4px;
+    width: 90%;
+}
+
+/* 민우 님 세팅 유지: 수정 버튼을 눌러도 삭제 버튼은 사라지지 않음 */
+li.editing .task-text,
+li.editing .edit-btn { display: none; }
+
+li.editing .edit-input,
+li.editing .save-btn,
+li.editing .cancel-btn { display: inline-block; }

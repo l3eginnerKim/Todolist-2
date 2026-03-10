@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>To Do List #1</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+    <h1>TODO List</h1>
+    <div class="progress-container">
+        <div class="progress-label">오늘의 달성도: <span id="progressPercent">0</span>%</div>
+        <div class="progress-bar-bg">
+            <div id="progressBarFill"></div>
+        </div>
+    </div>
+    <div class="input-group">
+        <input type="text" id="todoInput" placeholder="할 일을 입력하세요.">
+        <button id="addBtn">추가</button>
+    </div>
+    <div class="filter-container">
+        <button class="filter-btn active" data-filter="all">전체</button>
+        <button class="filter-btn" data-filter="active">미완료</button>
+        <button class="filter-btn" data-filter="completed">완료</button>
+    </div>
+    <ul id="todoList"></ul>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
